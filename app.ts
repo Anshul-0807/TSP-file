@@ -69,63 +69,95 @@
     ////////------------INTERFACES--------------///////////
 
 
-interface Transaction {
-    payerAccountNumber : number;
-    payeeAccountNumber: number;
-}
+// interface Transaction {
+//     payerAccountNumber : number;
+//     payeeAccountNumber: number;
+// }
 
-interface BankAccount {
-    accountNumber: number;
-    accountHolder: string;
-    balance: number;
-    isActive: boolean;
-    transaction: Transaction[]
-}
+// interface BankAccount {
+//     accountNumber: number;
+//     accountHolder: string;
+//     balance: number;
+//     isActive: boolean;
+//     transaction: Transaction[]
+// }
 
-const transaction1: Transaction = {
-    payerAccountNumber : 344,
-    payeeAccountNumber: 788,
-}
+// const transaction1: Transaction = {
+//     payerAccountNumber : 344,
+//     payeeAccountNumber: 788,
+// }
 
-const transaction2: Transaction = {
-    payerAccountNumber : 344,
-    payeeAccountNumber: 788,
-}
+// const transaction2: Transaction = {
+//     payerAccountNumber : 344,
+//     payeeAccountNumber: 788,
+// }
 
- const bankAccount: BankAccount = {
-    accountNumber: 88283,
-    accountHolder: 'jonhy depp',
-    balance: 73,
-    isActive: true,
-    transaction: [transaction1, transaction2]
+//  const bankAccount: BankAccount = {
+//     accountNumber: 88283,
+//     accountHolder: 'jonhy depp',
+//     balance: 73,
+//     isActive: true,
+//     transaction: [transaction1, transaction2]
+//  }
+
+// //  Extend Interfaces
+
+// interface Book {
+//     name: string;
+//     price: number;
+// }
+
+// interface EBook extends Book {
+//     // name: string;
+//     // price: number;
+//     fileSize: string | number;
+//     formated: string;
+// }
+
+// interface AudioBook extends EBook {
+//     // name: string;
+//     // price: number;
+//     // fileSize: string | number;
+//     // formated: string;
+//     duration: number
+// }
+
+// const book: AudioBook = {
+//   name:' A great Leader ',
+//   price: 1300,
+//   fileSize:  ' 300MB',
+//   formated: 'pdf',
+//   duration: 4,
+// }
+
+//  Merge intercepter
+
+// interface Book {
+//   name: string;
+//   price : number;
+// }
+
+// interface Book {
+//     size: string;
+// }
+
+// const book: Book = {
+//     name: 'rich dad poor dad',
+//     price: 4000,
+//     size: 'medium',
+// }
+
+
+// unions
+
+ type ID = string | number;
+//  narrowing
+ function printId(id:ID) {
+    if(typeof id === 'string'){
+    console.log(id.toUpperCase());
+     } else{
+        console.log(id);
+    }
  }
 
-//  Extend Interfaces
-
-interface Book {
-    name: string;
-    price: number;
-}
-
-interface EBook extends Book {
-    // name: string;
-    // price: number;
-    fileSize: string | number;
-    formated: string;
-}
-
-interface AudioBook extends EBook {
-    // name: string;
-    // price: number;
-    // fileSize: string | number;
-    // formated: string;
-    duration: number
-}
-
-const book: AudioBook = {
-  name:' A great Leader ',
-  price: 1300,
-  fileSize:  ' 300MB',
-  formated: 'pdf',
-  duration: 4,
-}
+ printId("hello");
