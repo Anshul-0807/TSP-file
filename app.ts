@@ -99,3 +99,33 @@ const transaction2: Transaction = {
     isActive: true,
     transaction: [transaction1, transaction2]
  }
+
+//  Extend Interfaces
+
+interface Book {
+    name: string;
+    price: number;
+}
+
+interface EBook extends Book {
+    // name: string;
+    // price: number;
+    fileSize: string | number;
+    formated: string;
+}
+
+interface AudioBook extends EBook {
+    // name: string;
+    // price: number;
+    // fileSize: string | number;
+    // formated: string;
+    duration: number
+}
+
+const book: AudioBook = {
+  name:' A great Leader ',
+  price: 1300,
+  fileSize:  ' 300MB',
+  formated: 'pdf',
+  duration: 4,
+}
