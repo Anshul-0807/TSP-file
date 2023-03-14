@@ -1,4 +1,4 @@
-////////////////-----------------LEARN TYPESCRIPT-------------------/////////////////////
+////////////////-----------------LEARN TS-------------------/////////////////////
 
 // let num1: number = 1
 
@@ -188,39 +188,104 @@ console.log(getFirstThree([1,2,3,4,5]));
 
 // 2nd example
 
-interface HasAge {
-    age: number;
+// interface HasAge {
+//     age: number;
+// }
+
+// function getOldest<T extends HasAge>(people: T[]): T{
+//     return people.sort((a,b) => b.age - a.age[0]);
+// }
+
+
+// const people: HasAge = [{age: 30}, {age: 40}, {age: 10}];
+
+// interface Player {
+//     name: string;
+//     age: number;
+// }
+
+// const players : Player[] = [
+//  {
+//     name: 'john', age: 70
+//  }, 
+//  {
+//     name: 'jane', age:18
+//  },
+//  {
+//     name: 'johny', age: 40
+//  }
+// ]
+
+// // assertion
+// // const person = getOldest(people) as Player;
+
+// const person = getOldest(people) ;
+
+// //  generic
+
+// person.age;
+
+
+//////////////////////////////////////////////////////////////////////////
+
+interface IPost {
+   title: string;
+   id: number;
+   description: string;
 }
 
-function getOldest<T extends HasAge>(people: T[]): T{
-    return people.sort((a,b) => b.age - a.age[0]);
+interface IUser {
+   id: number;
+   name: string:
+   age: number;
+}
+
+// const fetchPostData = async (path: string ): Promise<IPost[]>  => {
+//        const response = await fetch(`http://example.com${path}`) 
+//        return response.json();
+// }
+
+
+// const fetchUserData = async (path: string ): Promise<IUser[]>  => {
+//        const response = await fetch(`http://example.com${path}`) 
+//        return response.json();
+// }
+
+const fetchData = async <ResultTyoe>(path: string): Promise <ResultTyoe>=> {
+ const response = await fetch(`http://example.com${path}`) 
+ return response.json();
 }
 
 
-const people: HasAge = [{age: 30}, {age: 40}, {age: 10}];
+(async ()=> {
+      //  const posts = await fetchPostData('/posts');
+      //  posts[0].
 
-interface Player {
-    name: string;
-    age: number;
+
+      // const users = await fetchUserData('/users');
+      // users[0].
+
+      const posts  = await fetchData<IPost[]>('/posts');
+       posts[0].
+})();
+
+// structural typing or duck typing
+
+interface ICredential {
+   username: string;
+   password: number;
+   isAdmin? : boolean;
 }
 
-const players : Player[] = [
- {
-    name: 'john', age: 70
- }, 
- {
-    name: 'jane', age:18
- },
- {
-    name: 'johny', age: 40
- }
-]
+function login(credential : ICredential): boolean {
+   console.log(credential);
+   return true;
+}
 
-// assertion
-// const person = getOldest(people) as Player;
+const user = {
+    username: 'johny gaddar',
+   password: 878474,
+   isAdmin? : true,
+}
 
-const person = getOldest(people) ;
-
-//  generic
-
-person.age;
+login(user);
