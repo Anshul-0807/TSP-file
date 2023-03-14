@@ -1,31 +1,5 @@
 ////////////////-----------------LEARN TYPESCRIPT-------------------/////////////////////
-// var transaction1 = {
-//     payerAccountNumber: 344,
-//     payeeAccountNumber: 788
-// };
-// var transaction2 = {
-//     payerAccountNumber: 344,
-//     payeeAccountNumber: 788
-// };
-// var bankAccount = {
-//     accountNumber: 88283,
-//     accountHolder: 'jonhy depp',
-//     balance: 73,
-//     isActive: true,
-//     transaction: [transaction1, transaction2]
-// };
-// var book = {
-//     name: ' A great Leader ',
-//     price: 1300,
-//     fileSize: ' 300MB',
-//     formated: 'pdf',
-//     duration: 4
-// };
-
-
-
-
-
+//  narrowing
 function printId(id) {
     if (typeof id === 'string') {
         console.log(id.toUpperCase());
@@ -34,4 +8,10 @@ function printId(id) {
         console.log(id);
     }
 }
-
+printId("hello");
+// slice function via unions
+function getFirstThree(x) {
+    return x.slice(0, 3);
+}
+// console.log(getFirstThree("hello"));
+console.log(getFirstThree([1, 2, 3, 4, 5]));
