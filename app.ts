@@ -178,52 +178,52 @@ console.log(getFirstThree([1,2,3,4,5]));
 
 //  generics
 
-// function logAnything<T>(arg: T): T {
-//       console.log(arg);
-//       return arg;
+function logAnything<T>(arg: T): T {
+      console.log(arg);
+      return arg;
 
-// }
+}
 
-// logAnything([1,2,3]);
+logAnything([1,2,3]);
 
-// 2nd example
+2nd example
 
-// interface HasAge {
-//     age: number;
-// }
+interface HasAge {
+    age: number;
+}
 
-// function getOldest<T extends HasAge>(people: T[]): T{
-//     return people.sort((a,b) => b.age - a.age[0]);
-// }
+function getOldest<T extends HasAge>(people: T[]): T{
+    return people.sort((a,b) => b.age - a.age[0]);
+}
 
 
-// const people: HasAge = [{age: 30}, {age: 40}, {age: 10}];
+const people: HasAge = [{age: 30}, {age: 40}, {age: 10}];
 
-// interface Player {
-//     name: string;
-//     age: number;
-// }
+interface Player {
+    name: string;
+    age: number;
+}
 
-// const players : Player[] = [
-//  {
-//     name: 'john', age: 70
-//  }, 
-//  {
-//     name: 'jane', age:18
-//  },
-//  {
-//     name: 'johny', age: 40
-//  }
-// ]
+const players : Player[] = [
+ {
+    name: 'john', age: 70
+ }, 
+ {
+    name: 'jane', age:18
+ },
+ {
+    name: 'johny', age: 40
+ }
+]
 
-// // assertion
-// // const person = getOldest(people) as Player;
+// assertion
+// const person = getOldest(people) as Player;
 
-// const person = getOldest(people) ;
+const person = getOldest(people) ;
 
-// //  generic
+//  generic
 
-// person.age;
+person.age;
 
 
 //////////////////////////////////////////////////////////////////////////
